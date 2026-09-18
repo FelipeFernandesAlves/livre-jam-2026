@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://rgat1ct68ls0"]
+
+[ext_resource type="Script" uid="uid://diy8cm1xqfylf" path="res://addons/shy_juice_box/tween/scripts/auto_tween.gd" id="1_6vv6a"]
+[ext_resource type="Script" uid="uid://ryokn5w770an" path="res://addons/shy_juice_box/tween/scenes/tween_example.gd" id="1_e1iqc"]
+[ext_resource type="Script" uid="uid://x5lbqlkk44ny" path="res://addons/shy_juice_box/tween/scripts/tween_once.gd" id="2_t1qkw"]
+[ext_resource type="Script" uid="uid://bg61aeqkay8ah" path="res://addons/shy_juice_box/tween/scripts/tween_animation.gd" id="3_t1qkw"]
+[ext_resource type="Script" uid="uid://tknq0ub13a7c" path="res://addons/shy_juice_box/tween/animations/tween_scale_animation.gd" id="4_52sws"]
+[ext_resource type="Script" uid="uid://dee65ubmaef65" path="res://addons/shy_juice_box/tween/scripts/tweener_properties.gd" id="4_rdlic"]
+[ext_resource type="Script" uid="uid://cov6rdop1k821" path="res://addons/shy_juice_box/tween/triggers/tween_signal_trigger.gd" id="6_psf4v"]
+[ext_resource type="Script" uid="uid://3ekhcmel5t6e" path="res://addons/shy_juice_box/tween/triggers/tween_focus_trigger.gd" id="7_52sws"]
+[ext_resource type="Script" uid="uid://cdkurtys36lhs" path="res://addons/shy_juice_box/tween/animations/tween_translate_animation.gd" id="8_d8g5f"]
+[ext_resource type="Script" uid="uid://b74y4eor1dshq" path="res://addons/shy_juice_box/tween/triggers/tween_ready_trigger.gd" id="10_52sws"]
+[ext_resource type="Script" uid="uid://bqh3hfywft72r" path="res://addons/shy_juice_box/tween/triggers/tween_visibility_trigger.gd" id="10_psf4v"]
+
+[sub_resource type="Resource" id="Resource_d8g5f"]
+script = ExtResource("4_52sws")
+once_scale_in = 1.15
+metadata/_custom_type_script = "uid://tknq0ub13a7c"
+
+[sub_resource type="Resource" id="Resource_j0tyx"]
+script = ExtResource("4_rdlic")
+animations = Array[ExtResource("3_t1qkw")]([SubResource("Resource_d8g5f")])
+duration = 0.15
+transition = 6
+force_offset_transform = false
+metadata/_custom_type_script = "uid://dee65ubmaef65"
+
+[sub_resource type="Resource" id="Resource_jefcf"]
+script = ExtResource("8_d8g5f")
+translate_offset = Vector2(0, -10)
+metadata/_custom_type_script = "uid://cdkurtys36lhs"
+
+[sub_resource type="Resource" id="Resource_rxxio"]
+script = ExtResource("4_rdlic")
+animations = Array[ExtResource("3_t1qkw")]([SubResource("Resource_jefcf")])
+duration = 0.1
+ease = 2
+transition = 6
+force_from = false
+force_offset_transform = false
+metadata/_custom_type_script = "uid://dee65ubmaef65"
+
+[sub_resource type="Resource" id="Resource_yf5fn"]
+script = ExtResource("4_52sws")
+metadata/_custom_type_script = "uid://tknq0ub13a7c"
+
+[sub_resource type="Resource" id="Resource_g4v7s"]
+script = ExtResource("4_rdlic")
+animations = Array[ExtResource("3_t1qkw")]([SubResource("Resource_yf5fn")])
+duration = 0.25
+metadata/_custom_type_script = "uid://dee65ubmaef65"
+
+[node name="TweenExample" type="CanvasLayer" unique_id=573153666 node_paths=PackedStringArray("demo_button", "auto_tween")]
+script = ExtResource("1_e1iqc")
+demo_button = NodePath("Control/CenterContainer/VBoxContainer/Button")
+auto_tween = NodePath("Control/CenterContainer/VBoxContainer/Button/AutoTween2")
+
+[node name="Control" type="Control" parent="." unique_id=1634245185]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=1151811210]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer" unique_id=1858972772]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/CenterContainer/VBoxContainer" unique_id=431019436]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1934793779]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2065576888]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Toggle visibility"
+horizontal_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=45277892]
+layout_mode = 2
+size_flags_horizontal = 4
+button_pressed = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/CenterContainer/VBoxContainer/HBoxContainer" unique_id=335050754]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1601551282]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Toggle Show/Hide"
+horizontal_alignment = 1
+
+[node name="ShowHide" type="CheckButton" parent="Control/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=512616188]
+layout_mode = 2
+size_flags_horizontal = 4
+button_pressed = true
+
+[node name="Button" type="Button" parent="Control/CenterContainer/VBoxContainer" unique_id=1392077474]
+layout_mode = 2
+text = "I'm an Example!!"
+
+[node name="TweenOnce" type="Node" parent="Control/CenterContainer/VBoxContainer/Button" unique_id=2113110709 node_paths=PackedStringArray("target")]
+script = ExtResource("2_t1qkw")
+target = NodePath("..")
+tweener_properties = SubResource("Resource_j0tyx")
+metadata/_custom_type_script = "uid://x5lbqlkk44ny"
+
+[node name="TweenSignalTrigger" type="Node" parent="Control/CenterContainer/VBoxContainer/Button/TweenOnce" unique_id=915884873 node_paths=PackedStringArray("tweener", "target")]
+script = ExtResource("6_psf4v")
+once_signal = "pressed"
+tweener = NodePath("..")
+target = NodePath("../..")
+metadata/_custom_type_script = "uid://cov6rdop1k821"
+
+[node name="AutoTween" type="Node" parent="Control/CenterContainer/VBoxContainer/Button" unique_id=1627287378 node_paths=PackedStringArray("target")]
+script = ExtResource("1_6vv6a")
+target = NodePath("..")
+tweener_properties = SubResource("Resource_rxxio")
+metadata/_custom_type_script = "uid://diy8cm1xqfylf"
+
+[node name="TweenFocusTrigger" type="Node" parent="Control/CenterContainer/VBoxContainer/Button/AutoTween" unique_id=1346411662]
+script = ExtResource("7_52sws")
+metadata/_custom_type_script = "uid://3ekhcmel5t6e"
+
+[node name="AutoTween2" type="Node" parent="Control/CenterContainer/VBoxContainer/Button" unique_id=276198389 node_paths=PackedStringArray("target")]
+script = ExtResource("1_6vv6a")
+target = NodePath("..")
+tweener_properties = SubResource("Resource_g4v7s")
+metadata/_custom_type_script = "uid://diy8cm1xqfylf"
+
+[node name="TweenVisibilityTrigger" type="Node" parent="Control/CenterContainer/VBoxContainer/Button/AutoTween2" unique_id=1612031644]
+script = ExtResource("10_psf4v")
+metadata/_custom_type_script = "uid://bqh3hfywft72r"
+
+[node name="TweenReadyTrigger" type="Node" parent="Control/CenterContainer/VBoxContainer/Button/AutoTween2" unique_id=1947003772]
+script = ExtResource("10_52sws")
+metadata/_custom_type_script = "uid://b74y4eor1dshq"
+
+[connection signal="toggled" from="Control/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="Control/CenterContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ShowHide" to="." method="_on_show_hide_toggled"]

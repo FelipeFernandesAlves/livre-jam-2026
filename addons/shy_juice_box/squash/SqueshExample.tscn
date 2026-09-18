@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://d3xxewiw6u6ve"]
+
+[ext_resource type="Script" uid="uid://77utt1in7soe" path="res://addons/shy_juice_box/squash/squesh_example.gd" id="1_7b4tg"]
+[ext_resource type="Script" uid="uid://bhs06oqqgbrih" path="res://addons/shy_juice_box/squash/squesh.gd" id="1_fyw6y"]
+[ext_resource type="Texture2D" uid="uid://dgnt1hraunpe6" path="res://shy_shoe.svg" id="2_7b4tg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7b4tg")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SqueshExample" type="Node2D" unique_id=82860703 node_paths=PackedStringArray("squesh")]
+script = ExtResource("1_7b4tg")
+squesh = NodePath("Squesh")
+
+[node name="Squesh" type="Node" parent="." unique_id=1432974458 node_paths=PackedStringArray("sprites")]
+script = ExtResource("1_fyw6y")
+sprites = NodePath("../Sprite2D")
+metadata/_custom_type_script = "uid://bhs06oqqgbrih"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=502285131]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1095526633]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=2031896419]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=203287710]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 30
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/MarginContainer" unique_id=503991128]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Aperte <- ou -> para testar."
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=554117638]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_g4v7s")
