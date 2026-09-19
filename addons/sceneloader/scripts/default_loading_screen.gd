@@ -1,3 +1,4 @@
+class_name DefaultLoadingSceen
 extends LoadingScreen
 
 @export var animation_player: AnimationPlayer

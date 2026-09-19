@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://r0dkp1b0aqgl"]
+
+[ext_resource type="Script" uid="uid://bwey27oc7qr5h" path="res://actors/dummy/dummy.gd" id="1_ixgu3"]
+[ext_resource type="Texture2D" uid="uid://v2rd8f1nwu1n" path="res://icon.svg" id="1_rh8ts"]
+[ext_resource type="Script" uid="uid://brdu1rc0rexs7" path="res://components/MovementComponent.gd" id="2_6h1nk"]
+[ext_resource type="Script" uid="uid://q3skggdof60m" path="res://components/Damageable.gd" id="3_8pudu"]
+[ext_resource type="Script" uid="uid://ok4eqtqbvk5d" path="res://components/HealthComponent.gd" id="4_cma2h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(52, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(52, 52)
+
+[node name="Dummy" type="CharacterBody2D" unique_id=986156465 node_paths=PackedStringArray("health_label", "health_component")]
+script = ExtResource("1_ixgu3")
+health_label = NodePath("Label")
+health_component = NodePath("HealthComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=648986450]
+modulate = Color(1, 0.42352942, 0.6901961, 1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_rh8ts")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=565549563]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=44706345 node_paths=PackedStringArray("body")]
+script = ExtResource("2_6h1nk")
+body = NodePath("..")
+metadata/_custom_type_script = "uid://brdu1rc0rexs7"
+
+[node name="HealthComponent" type="Node" parent="." unique_id=138124682]
+script = ExtResource("4_cma2h")
+max_health = 200.0
+metadata/_custom_type_script = "uid://ok4eqtqbvk5d"
+
+[node name="Damageable" type="Area2D" parent="." unique_id=113783405]
+script = ExtResource("3_8pudu")
+metadata/_custom_type_script = "uid://q3skggdof60m"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damageable" unique_id=562957230]
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="Label" type="Label" parent="." unique_id=1763553561]
+offset_left = -18.0
+offset_top = -50.0
+offset_right = 22.0
+offset_bottom = -27.0
+text = "10.0"

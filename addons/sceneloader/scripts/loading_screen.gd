@@ -5,7 +5,7 @@ extends CanvasLayer
 signal loading_screen_ready()
 var transition_name: String
 
-func _on_progress_change(new_value: float):
+func _on_progress_changed(new_value: float):
 	pass
 
 func _on_load_finished():

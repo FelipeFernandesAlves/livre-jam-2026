@@ -38,11 +38,11 @@ _data = {
 &"fade": SubResource("Animation_gobt4")
 }
 
-[node name="DefaultLoadingScreen" type="CanvasLayer" unique_id=1745646313 node_paths=PackedStringArray("animation_player")]
+[node name="DefaultLoadingScreen" type="CanvasLayer" unique_id=2117104189 node_paths=PackedStringArray("animation_player")]
 layer = 10
 script = ExtResource("1_ocqxc")
 animation_player = NodePath("AnimationPlayer")
-metadata/_custom_type_script = "uid://c8n4c6mgttc13"
+metadata/_custom_type_script = "uid://b8yy3dvma1db5"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1132444181]
 libraries/ = SubResource("AnimationLibrary_1ubu8")

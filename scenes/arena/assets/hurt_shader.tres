@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bhla6nhwk1dgu"]
+
+[ext_resource type="Shader" uid="uid://6trpsp4qq424" path="res://actors/player/assets/HurtShader.gdshader" id="1_tmslc"]
+
+[resource]
+shader = ExtResource("1_tmslc")
+shader_parameter/active = false
+shader_parameter/speed = 3.000000095

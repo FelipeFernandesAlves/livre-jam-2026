@@ -1,3 +1,37 @@
 [gd_scene format=3 uid="uid://bo5en6wu2wsam"]
 
-[node name="Main" type="Node2D" unique_id=41415914]
+[ext_resource type="Script" uid="uid://bhcg0lllnrhw5" path="res://scenes/main/main.gd" id="1_gyg6b"]
+[ext_resource type="Script" uid="uid://bj0q28jty4a1k" path="res://addons/sceneloader/scripts/sceneloader.gd" id="1_q24mn"]
+[ext_resource type="PackedScene" uid="uid://biqwdh53jld31" path="res://addons/shysplashscreen/splash_screen.tscn" id="1_u1xfj"]
+[ext_resource type="PackedScene" uid="uid://drjl0xejbexqk" path="res://scenes/arena/Arena.tscn" id="3_dc040"]
+
+[node name="Main" type="Node2D" unique_id=41415914 node_paths=PackedStringArray("scene_loader")]
+script = ExtResource("1_gyg6b")
+splash_screen = ExtResource("1_u1xfj")
+initial_scene = ExtResource("3_dc040")
+scene_loader = NodePath("SceneLoader")
+
+[node name="SceneLoader" type="Node" parent="." unique_id=418024128 node_paths=PackedStringArray("control_parent", "node2d_parent", "node_parent")]
+process_mode = 3
+script = ExtResource("1_q24mn")
+control_parent = NodePath("../CanvasLayer/ControlParent")
+node2d_parent = NodePath("../Node2DParent")
+node_parent = NodePath("../NodeParent")
+metadata/_custom_type_script = "uid://bj0q28jty4a1k"
+
+[node name="NodeParent" type="Node" parent="." unique_id=351248435]
+
+[node name="Node2DParent" type="Node2D" parent="." unique_id=15659932]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=248473194]
+follow_viewport_enabled = true
+
+[node name="ControlParent" type="Control" parent="CanvasLayer" unique_id=1615512989]
+process_mode = 3
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

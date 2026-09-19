@@ -19,9 +19,6 @@ func _create_tween():
 	if (!in_animation):
 		original_scale = sprites.scale
 
-		if (sprites.scale != custom_base_scale):
-			original_scale = custom_base_scale
-
 	in_animation = true
 		
 	if (tween && tween.is_valid()):
@@ -49,7 +46,6 @@ func _stretch_animation():
 	tween.tween_property(sprites, "scale:x", original_scale.x - magnitude, duration/2)
 	tween.parallel().tween_property(sprites, "scale:y", original_scale.y + magnitude, duration/2)
 	
-
 func squash():
 	if (!sprites):
 		push_warning("Squesh without valid sprite!")
@@ -78,8 +74,6 @@ func squash_and_stretch():
 	tween.tween_callback(func():
 		stretch()
 		)
-
-
 
 func stretch_and_squash():
 	if (!sprites):

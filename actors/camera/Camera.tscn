@@ -1,3 +1,7 @@
 [gd_scene format=3 uid="uid://vljxvpbbxp2o"]
 
-[node name="Camera" type="Node2D" unique_id=412840340]
+[ext_resource type="Script" uid="uid://c4sn2ympqlusm" path="res://actors/camera/camera.gd" id="1_uc1r7"]
+
+[node name="Camera" type="Camera2D" unique_id=701417843 groups=["camera"]]
+script = ExtResource("1_uc1r7")
+metadata/_custom_type_script = "uid://c4sn2ympqlusm"
